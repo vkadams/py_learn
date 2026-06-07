@@ -1,0 +1,193 @@
+Which configuration option is used to run tests in headless mode?
+mode: 'headless'
+headless: true
+browser: 'headless'
+runHeadless: true --
+
+Which method is used to upload a file in Playwright using Python?
+page.upload('input[type="file"]', '/path/to/file')
+page.locator("input[type='file']").set_input_files('/path/to/file') ==
+page.fillFile('input[type="file"]', '/path/to/file')
+page.uploadFile('input[type="file"]', '/path/to/file')
+
+How can you mock geolocation in Playwright tests using Python?
+browser.new_context( geolocation={"latitude": 12.9716, "longitude": 77.5946}, # Bangalore permissions=["geolocation"] ) ==
+context.setGeolocation({ latitude, longitude })
+browser.mockGeolocation({ latitude, longitude })
+test.useGeolocation({ latitude, longitude })
+
+What is a best practice for test isolation in Playwright using Python?
+Use a single browser instance for all tests
+Share context between tests
+Use a new context for each test ==
+Reuse pages across multiple tests
+
+How can you handle flaky tests in Playwright using Python?
+Increase the default timeout
+Use retry logic for unstable tests
+Run tests in parallel
+All of the above ==
+
+Which method is used to intercept and modify network requests in Playwright using Python?
+page.interceptRequest()
+page.mockRequest()
+page.route(url,handler) ==
+page.networkIntercept()
+
+How to type into an input safely page.locator("input").fill("Hello") page.locator("input").type("Hello")
+fill replaces existing value; type simulates keystrokes ==
+No Differenence
+type clears input automatically
+fill presses Enter after typing
+
+Which Playwright method is used for making API calls in tests using Python?
+page.api()
+test.api()
+playwright.request.new_context() ==
+playwright.request()
+
+How can you run Playwright tests in parallel using Python?
+pytest -n ==
+Use the --parallel flag when running tests
+Implement custom parallel execution logic
+Playwright runs tests in parallel by default
+
+How do you set the viewport size in Playwright using Python?
+browser.setViewportSize()
+context.setViewportSize()
+page.setViewportSize() ==
+test.setViewportSize()
+
+How can you handle shadow DOM elements in Playwright using Python?
+Use the >>> combinator in selectors ==
+Enable shadow DOM support in the config
+Use page.shadowRoot() method
+page.locator()
+
+what will the following code print? from playwright.sync_api import sync_playwright with sync_playwright() as p: browser = p.chromium.launch(headless=True) page = browser.new_page() page.set_content("
+Hello
+") text = page.locator("div").inner_text() print(text)
+Hello ==
+Hello
+div
+None
+
+In Playwright, what is a "context"?
+A group of related tests
+An isolated browsing session ==
+A specific browser version
+A test environment configuration
+
+How do you assert that an element is visible using Playwright's expect library?
+expect(element).toBeVisible()
+expect(page.locator('.element')).toBeVisible() ==
+assert.isVisible(element)
+page.waitForSelector('.element', { state: 'visible' })
+
+What is the Page Object Model (POM) in the context of test automation?
+A way to organize test data
+A design pattern for representing web pages in tests ==
+A method for generating test reports
+A technique for parallel test execution
+
+How do you handle a browser dialog (e.g., alert) in Playwright using Python?
+page.acceptDialog()
+page.on('dialog', dialog => dialog.accept()) ==
+browser.handleDialog('accept')
+context.acceptNextDialog()
+
+How do you debug Playwright tests using the built-in debugger using python?
+Add debugger; statements in your code
+Use page.pause() ==
+Set breakpoints in your IDE
+Use test.debug() function
+
+What is the difference between locator.click() and page.click() in Playwright using Python?
+locator.click() is faster
+page.click() works across all browsers
+locator.click() has built-in auto-waiting ==
+There is no difference
+
+How can you take screenshots in Playwright tests using Python?
+test.screenshot()
+page.captureScreenshot()
+page.screenshot() ==
+browser.takeScreenshot()
+
+What is the purpose of the @pytest.fixture function in Playwright using python?
+To run code before all tests
+To run code before each test in a describe block
+To define test prerequisites ==
+To set up global test data
+
+Which method is used to wait for a specific condition in Playwright using Python?
+page.waitFor()
+page.waitForCondition()
+page.wait_for_selector()==
+page.wait()
+
+What is the purpose of the @pytest.mark.skip function in Playwright using python?
+To skip a test conditionally
+To mark a test as pending
+To exclude a test from the test run
+All of the above ==
+
+What is the purpose of the browser.new_context() and Pytest fixtures in playwright using Python?
+To use a specific browser for a test
+To override test fixtures
+To include external libraries in tests
+To define test dependencies ==
+
+What is the output? a = 1 b = a a = "string" print(b)
+1 ==
+"string"
+undefined
+Error
+
+what is the print value? from enum import Enum class Color(Enum): Red = 0 Green = 1 Blue = 2 c = Color.Green print(c.value)
+"Green"
+1 ==
+undefined
+Error
+
+What is the output/ p = {"name": "John", "age": 30} person = p print(person)
+{name: "John"}
+{name: "John", age: 30} ==
+Error
+undefined
+
+What is the output? tuple_list = ["a", 1] tuple_list.append(2) print(tuple_list)
+["a", 1]
+["a", 1, 2] ==
+Error
+undefined
+
+What is the output? from playwright.sync_api import sync_playwright def test_variable_example(): a = None print(a) with sync_playwright() as p: test_variable_example()
+"number"
+"any"
+"None" ==
+Error
+
+what is the output? def log_length(arg): print(len(arg)) log_length([1, 2, 3])
+3 ==
+undefined
+Error
+[1, 2, 3]
+
+what is the output? a = (1, 2, 3) a.append(4)
+[1, 2, 3, 4]
+[1, 2, 3]
+undefined
+Error ==
+
+what is the output? def f(x: int): print(x) f()
+undefined
+null
+0
+Error ==
+
+What does this code Print? a = [] a.append(1) print(a)
+[]
+[1] ==
+undefined
+Error

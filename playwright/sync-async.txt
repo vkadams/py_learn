@@ -1,0 +1,20 @@
+Synchronous [Wait → complete → move next]
+Execution happens step by step
+Each task must complete before the next task starts
+Statements are executed one after another. The next step waits until the current task finishes.
+
+Asynchronous [Start → move ahead → handle completion later]
+Execution does not wait for a task to complete
+Multiple tasks can start and run independently
+A task starts for one statement, and other tasks can begin without waiting for the earlier one to finish.
+
+TS & JS are async
+playwright+pytest uses both sync & async
+we prefer sync
+usually for api testing async is preferred
+
+to run async test-
+install this plugin
+py -m pip install pytest-asyncio
+then mark the test
+@pytest.mark.asyncio

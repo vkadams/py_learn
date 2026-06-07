@@ -1,0 +1,24 @@
+features available only in playwright and not in selenium
+
+-- capture videos
+context = browser.new_context(
+        record_video_dir=video_path,
+        record_video_size={"width": 1280, "height": 720}
+    )
+
+
+-- capture screenshots
+page.screenshot(path=f"screenshots/homepage_{timestamp}.png", full_page=True)
+
+
+-- trace viewer
+context.tracing.start(screenshots=True, snapshots=True)
+stop before closing page-context-browser
+context.tracing.stop(path="trace.zip")
+open the file -- py -m playwright show-trace trace.zip
+can view in browser-- https://trace.playwright.dev/
+
+-- retry tests -- handling flaky tests
+py -m pip install pytest-rerunfailures
+to retry
+py -m pytest videos_screenshots_trace/test_tracing_feature.py/ -s -v --reruns 3 --reruns-delay 2

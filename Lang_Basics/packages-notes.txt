@@ -1,0 +1,15 @@
+downloading external packages
+installing a package that is hosted on pypi
+pip install <package_name>
+
+pip install requests -- requesting information from website
+pip install colorama -- print out color text in the terminal
+pip install openpyxl
+
+searching for a pypi package
+python package for excel
+
+modules are just .py scripts
+packages are collection of modules
+
+py -m playwright show-trace trace.zip

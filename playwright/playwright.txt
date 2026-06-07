@@ -1,0 +1,38 @@
+pytest- testing framework developed using python.
+playwright is available as plugin on top of pytest.
+
+pre-requisite-
+1 *install python* [using installer]
+
+2 install pytest [*pip install pytest*]
+
+3 *pip install pytest-playwright* -- install pytest-playwright plugin, this will allow us writing automated test cases
+
+4 next step is to install browsers. playwright will install browser engines.
+*playwright install*
+
+*****************************************************
+Execution mode-
+Headless - no browser [default]
+**py -m pytest test_playwright.py -s -v
+UI - browser will actions
+**py -m pytest test_playwright.py -s -v --headed
+
+run particular function/test from a module in headed mode
+**py -m pytest test_playwright.py::test_verifypagetitle -s -v --headed
+
+commands-
+headless--- py -m pytest test_playwright.py::test_verifypagetitle -s -v
+
+headed---   py -m pytest test_playwright.py::test_verifypagetitle -s -v --headed
+
+specific browser-- py -m pytest test_playwright.py::test_verifypagetitle -s -v --browser firefox
+
+multiple browsers-- py -m pytest test_playwright.py::test_verifypagetitle -s -v --browser firefox --browser chromium
+
+pytest-xdest plugin should have been installed-
+running in parallel mode-- py -m pytest test_playwright.py::test_verifypagetitle -s -v -n=2
+or
+py -m pytest test_playwright.py::test_verifypagetitle -s -v -n 2
+or
+py -m pytest test_playwright.py::test_verifypagetitle -s -v --numprocesses 2

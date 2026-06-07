@@ -1,0 +1,9 @@
+inner_text() vs text_content()
+
+1 inner_text()--
+  no spaces - returns actual text
+
+2 text_content()--
+ returns spaces, spl characters before & after text
+
+3 all() method

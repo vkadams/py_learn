@@ -1,0 +1,7 @@
+page object classes rules:
+page object class should contain-
+-- elements
+-- action methods
+
+page object class should NOT contain-
+-- validation/s

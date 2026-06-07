@@ -1,0 +1,15 @@
+any language that supports [Java, Python] - class, object, inheritance ==> *object oriented programming
+language*
+visual basics support - class & object- this is *object based programming language*
+
+Class- collection of variables(attributes) & methods(behavior)
+Class is blue print
+logical entity -does not occupy space in memory
+
+Object is instance of Class
+Object occupies space
+we can create multiple objects for a single class
+function outside class --> function
+function inside class --> method
+
+inheritance is basically a way to form new classes using classes that have already been defined.

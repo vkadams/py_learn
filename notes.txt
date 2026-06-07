@@ -1,0 +1,36 @@
+its always excel as data file for data driven testing-- web testing
+its always json as data file for data driven testing-- api testing
+
+pytest & allure reports
+pytest-html reports
+-- install the plugin -- pip install pytest-html
+-- configure pytest.ini
+-- attach screenshots on test failures (conftest.py) -- this is to add screenshots to failed test cases
+-- create sample tests
+-- run the tests & generate report
+
+Allure reports-- 3rd party supports selenium/playwright & is available globally
+-- install allure plugin
+    pip install allure-pytest
+-- install allure command line tool
+    since allure report will be generated in json format, thats why we install command line tool
+-- configure allure in pytest.ini
+-- attach screenshots on test failures-- update conftest.py
+-- create & run the tests
+-- generate and view allure reports
+    allure serve reports/allure-results [to view the report]
+    allure generate reports/allure-results
+
+    to generate report at run time:
+this will run the tests in the current working directory:    py -m pytest --alluredir=reports/allure-results -v
+this will generate report at run time:    allure serve reports/allure-results
+
+    to save the report and view
+    allure generate reports/allure-results -o reports/allure-report --clean
+
+
+testing framework
+reusability & maintainability is the purpose of framework
+structuring the folders
+
+need to design framework-

@@ -1,0 +1,77 @@
+PyTest is python builtin framework by which we can use certain features in automation. just like junit for java
+Features:
+Fixtures- are reusable functions.
+skip tests [select test as required]
+order the tests
+group the tests [regression/ui/sanity]
+parallel testing
+
+Playwright is implemented on top of pytest
+
+pytest usually used for unit testing. we can write test using pytest
+install command from terminal: py -m pip show pytest
+
+
+Naming conventions-
+module-module name should start Or end with "test" [test_example.py OR example_test.py]
+class-class name should also start with test [TestClass]
+function-test function should start with test_ [def test_example()]
+
+*****run commands*********
+run the test: py -m pytest test_demos.py -s [-s will print anything within func]
+py -m pytest test_demos.py::test_func -s [::test_func will execute on that test function]
+py -m pytest test_demos.py -s -v [-v verbose- will show pass fail status for individual functions]
+
+configurations:
+ctrl+alt+l -- to format code
+
+**********skipping tests-
+want to skip a test using decorator- @pytest.mark.skip(reason="skip test")
+individual tests can be skipped by using decorator: @pytest.mark.skip
+the tests having this decorator or marker will be skipped.
+
+**********grouping tests-
+we can create custom groups using decorator/marker: @pytest.mark.sanity, @pytest.mark.regression, etc as necessary
+use this marker for the tests for grouping purpose.
+create pytest.ini file in the same folder and ensure to have these custom markers- sanity/regression mentioned following the pytest.ini format.
+finally run the test following the command
+1- only sanity tests
+py -m pytest test_grouping.py -s -v -m "sanity"
+
+2- only regression tests
+py -m pytest test_grouping.py -s -v -m "regression"
+
+3- both sanity & regression tests
+py -m pytest test_grouping.py -s -v -m "sanity and regression"
+
+4- run only sanity tests which are not marked for regression
+py -m pytest test_grouping.py -s -v -m "sanity" -m "not regression"
+
+4- run only regression tests which are not marked for sanity
+py -m pytest test_grouping.py -s -v -m "regression" -m "not sanity"
+
+************Ordering-
+we need to install plugin to order test using pytest-order
+approach 1- ordering by position - similar using priority in testng
+add decorators to the test- @pytest.mark.order(1), @pytest.mark.order(2) & so on
+while executed, the test will be executed in the order
+
+approach 2-
+the test which we want to execute first, mark-- @pytest.mark.order(1)
+next test can have reference-- @pytest.mark.order(before="test_logout")
+
+approach 3-
+by marking first/last, and no other tests will have markers - prefer approach 1 or 2
+@pytest.mark.order("first"), @pytest.mark.order("last")
+first & last are keywords
+
+
+***********parallel testing
+install plugin pip install pytest-xdist
+by default one worker will be assigned and tests will be executed sequentially one after another
+To run parallely, we need to allocate workers, note the downside of having more workers will be hit on memory, advised to keep it at or below 5
+-n 2 ==> refers to 2 workers
+py -m pytest test_parallel.py -s -v -n 2
+or
+py -m pytest test_parallel.py -s -v -n=2
+

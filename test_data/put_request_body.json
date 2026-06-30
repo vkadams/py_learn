@@ -1,0 +1,11 @@
+{
+   "firstname":"Rob",
+   "lastname":"Maza",
+   "totalprice":3115,
+   "depositpaid":false,
+   "bookingdates":{
+      "checkin":"2026-03-01",
+      "checkout":"2026-04-09"
+   },
+   "additionalneeds":"lots of chocolate chip cookies"
+}
